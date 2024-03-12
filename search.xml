@@ -156,6 +156,141 @@
     </entry>
     
     
+    
+    <entry>
+      <title>关于使用scrapy绕过400状态码报错，停止爬取的方法</title>
+      <link href="/post/1fdc6d41.html"/>
+      <url>/post/1fdc6d41.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于使用scrapy绕过400状态码报错，停止爬取的方法"><a href="#关于使用scrapy绕过400状态码报错，停止爬取的方法" class="headerlink" title="关于使用scrapy绕过400状态码报错，停止爬取的方法"></a>关于使用scrapy绕过400状态码报错，停止爬取的方法</h1><blockquote><p>我在爬起点小说网的时候，因为是扫网页，也就是一个一个去试，导致不可避免的会访问到400的请求</p><p>而scrapy在遇到400的状态码的时候会自动停止爬取，在爬虫文件中的parse方法里获取不到返回的信息</p><p>直接给你报错，然后终止爬虫工作，就很烦。。。</p><p>在网上找了好久，终于找到一个方法，能在获取到400后不停止，直接返回到爬虫文件的parse中的response</p></blockquote><h3 id="在settings-py中设置"><a href="#在settings-py中设置" class="headerlink" title="在settings.py中设置"></a>在settings.py中设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 忽略400报错，直接传入parse</span><br><span class="line">HTTPERROR_ALLOWED_CODES = [400]</span><br></pre></td></tr></table></figure><h3 id="然后在爬虫文件中的parse方法的response获取到"><a href="#然后在爬虫文件中的parse方法的response获取到" class="headerlink" title="然后在爬虫文件中的parse方法的response获取到"></a>然后在爬虫文件中的parse方法的response获取到</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def parse(self, response):</span><br><span class="line">print(response)</span><br><span class="line">print(response.status)</span><br></pre></td></tr></table></figure><h3 id="在控制台中可以看到信息了"><a href="#在控制台中可以看到信息了" class="headerlink" title="在控制台中可以看到信息了"></a>在控制台中可以看到信息了</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;400 https://book.qidian.com/info/1030564368/&gt;</span><br><span class="line">400</span><br></pre></td></tr></table></figure><h3 id="下面就可以根据不同的需求进行相关的代码编写了"><a href="#下面就可以根据不同的需求进行相关的代码编写了" class="headerlink" title="下面就可以根据不同的需求进行相关的代码编写了"></a>下面就可以根据不同的需求进行相关的代码编写了</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> scrapy </tag>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修改 red hat 6 系统时间</title>
+      <link href="/post/82fcd2c0.html"/>
+      <url>/post/82fcd2c0.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="修改red-hat-6系统时间"><a href="#修改red-hat-6系统时间" class="headerlink" title="修改red hat 6系统时间"></a>修改red hat 6系统时间</h1><h2 id="date，查看系统时间"><a href="#date，查看系统时间" class="headerlink" title="date，查看系统时间"></a>date，查看系统时间</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure><p>执行完这个命令后</p><p>再次执行date查看系统时间，发现时间更改为上海时间</p><p>用<strong>reboot</strong>重新启动查看date也是上海时间</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> redhat6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于在vue3脚手架创建的项目中初步使用store文件</title>
+      <link href="/post/2c99a659.html"/>
+      <url>/post/2c99a659.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于在vue3脚手架创建的项目中初步使用store文件"><a href="#关于在vue3脚手架创建的项目中初步使用store文件" class="headerlink" title="关于在vue3脚手架创建的项目中初步使用store文件"></a>关于在vue3脚手架创建的项目中初步使用store文件</h1><blockquote><p>在用vue3脚手架创建完成后项目工程里出现store文件夹，里面有个index.js文件，根据查找网上的信息来看，里面都是存储一些全局变量、异步变量、状态管理之类的。在这里，我初步使用了一下这个文件，仅作个人感悟，很暴力的使用。</p></blockquote><p>先看一下脚手架生成的store文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &#x27;vuex&#x27;</span><br><span class="line"></span><br><span class="line">export default createStore(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">  // 放置变量所用</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">  // 获取set方法</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>这里我先暂时用了两个方法，state和mutations，分别是放置全局变量和set方法</p><p>在vuex官网上还有一个概念：<a href="https://vuex.vuejs.org/zh/guide/getters.html">Getter</a> ，在这个方法里可以写get方法获取变量</p><p>于是，修改过后的store文件如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &#x27;vuex&#x27;</span><br><span class="line"></span><br><span class="line">export default createStore(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    url: &quot;/api&quot; + JSON.parse(window.sessionStorage.getItem(&quot;admin&quot;)).adminpic</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    geturl: state =&gt; state.url</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    seturl(state,newurl)&#123;</span><br><span class="line">      state.url = newurl</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>这里存储了一个全局变量url、get方法和set方法</p><p>然后在组件1中引用</p><p>1.vue</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">data () &#123;</span><br><span class="line">return &#123;</span><br><span class="line">url: “”</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">created () &#123;</span><br><span class="line">this.url = this.$store.getters.geturl//这里用get方法获取到变量</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>在组件2中修改全局变量</p><p>2.vue</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">data () &#123;</span><br><span class="line">return &#123;</span><br><span class="line">url: &quot;111&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">change () &#123;// 这里是你自己随意定义的一个方法</span><br><span class="line">this.$store.commit(&quot;seturl&quot;,this.url)// 这里使用set方法对store中的变量进行更改</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>经过change方法更改过后，store中的变量url就更改为111了</p><p>组件2让store变量修改后因为组件1已经DOM渲染完了，所以如果想让组件1也随之改变，就需要对组件1的变量url进行监听</p><p>监听代码如下：</p><p>1.vue</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">data () &#123;</span><br><span class="line">return &#123;</span><br><span class="line">url: “”</span><br><span class="line">&#125;</span><br><span class="line">&#125;，</span><br><span class="line">    computed: &#123;// computed是计算属性，state里面的url改变之后，就会进行一次计算，并返回计算值到对应的参数中</span><br><span class="line">        url () &#123;</span><br><span class="line">          return this.$store.state.url</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;// 监听属性，在computed计算属性更改之后会触发参数值的改变，所以能够监听到</span><br><span class="line">      url () &#123;</span><br><span class="line">      // 这里会在commit之后触发，然后做后续的操作</span><br><span class="line">        this.url = this.$store.getters.geturl</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">created () &#123;</span><br><span class="line">this.url = this.$store.getters.geturl//这里用get方法获取到变量</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>这样的话，在组件2中修改store全局变量后，组件1会检测到然后里面的变量也会随之修改</p><p>当然，这是最粗暴的使用奥，若有不规范的，轻喷</p><div class="note warning flat"><p>现在好像在 vue3 中使用 pinia 更轻便</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vuex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于在IDEA打开的项目中，项目引入了lombok的依赖后，IDEA出现报错的问题</title>
+      <link href="/post/1c82ad06.html"/>
+      <url>/post/1c82ad06.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于在IDEA打开的项目中，项目引入了lombok的依赖后，IDEA出现报错的问题"><a href="#关于在IDEA打开的项目中，项目引入了lombok的依赖后，IDEA出现报错的问题" class="headerlink" title="关于在IDEA打开的项目中，项目引入了lombok的依赖后，IDEA出现报错的问题"></a>关于在IDEA打开的项目中，项目引入了lombok的依赖后，IDEA出现报错的问题</h1><h2 id="一、首先确定项目是否成功引入了lombok依赖"><a href="#一、首先确定项目是否成功引入了lombok依赖" class="headerlink" title="一、首先确定项目是否成功引入了lombok依赖"></a>一、首先确定项目是否成功引入了lombok依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="二、查看实体类中的方法是否添加了注解-Data"><a href="#二、查看实体类中的方法是否添加了注解-Data" class="headerlink" title="二、查看实体类中的方法是否添加了注解@Data"></a>二、查看实体类中的方法是否添加了注解@Data</h2><h2 id="三、查看所使用lombok语法的方法类是否添加注解-Data"><a href="#三、查看所使用lombok语法的方法类是否添加注解-Data" class="headerlink" title="三、查看所使用lombok语法的方法类是否添加注解@Data"></a>三、查看所使用lombok语法的方法类是否添加注解@Data</h2><h2 id="四、在IDEA的Plugins中下载插件lombok"><a href="#四、在IDEA的Plugins中下载插件lombok" class="headerlink" title="四、在IDEA的Plugins中下载插件lombok"></a>四、在IDEA的Plugins中下载插件lombok</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+            <tag> lombok </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于使用Git上传仓库的一些个人见解</title>
+      <link href="/post/11c02f3.html"/>
+      <url>/post/11c02f3.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于使用Git上传仓库的一些个人见解"><a href="#关于使用Git上传仓库的一些个人见解" class="headerlink" title="关于使用Git上传仓库的一些个人见解"></a>关于使用Git上传仓库的一些个人见解</h1><h2 id="1-当在远端仓库已经初始化建好时"><a href="#1-当在远端仓库已经初始化建好时" class="headerlink" title="1. 当在远端仓库已经初始化建好时"></a>1. 当在远端仓库已经初始化建好时</h2><ol><li>git init                                            初始化仓库，在文件下面会生成一个.git 文件夹</li><li>git status</li><li>git add .                                         将文件夹里的内容全部添加到git中</li><li>git commit -m “注释”                    添加注释</li><li>在代码托管平台(github,gitee)新建远程仓库</li><li>git remote add origin <a href="https://gitee.com/****/*****.git">https://gitee.com/****/*****.git</a></li><li>git push -u origin master            将本地仓库提交给远程仓库（第一次推送加（-u origin master），后面推送可以不加）</li></ol><h2 id="2-当克隆下来的代码时"><a href="#2-当克隆下来的代码时" class="headerlink" title="2. 当克隆下来的代码时"></a>2. 当克隆下来的代码时</h2><ol><li><p>拉代码到本地：在本地磁盘新建个文件夹，比如：D:\java每日一题，然后进入这个文件夹右键 git bash</p></li><li><p>执行命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/****/*****.git</span><br></pre></td></tr></table></figure></li><li><p>此文件夹下会出来另一个文件夹，在进入下一个文件夹后，写下自己的代码，写完后添加</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ./*****</span><br><span class="line">git add .</span><br></pre></td></tr></table></figure></li><li><p>通过 git status可以查看自己仓库的状态</p></li><li><p>再提交代码到本地仓库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;提交代码  *****.md&#x27;</span><br></pre></td></tr></table></figure><blockquote><p>注意：-m必须要写，后面的信息表示你本次提交的代码信息，比如新增文件，就写 ‘add xx文件’</p></blockquote></li><li><p>经过上面的步骤，本地仓库的代码就完成提交了，但是，我们还没有提交到远程Gitee仓库，需要再执行下面的命令，将代码推到远程仓库。</p><ol><li><p>先拉代码：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></li><li><p>推代码</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure></li></ol></li></ol><p>可以打开网页的gitee仓库，验证下代码是否已经提交成功。</p><blockquote><p>注意：每次push之前一定要先pull拉代码，不然就会报错！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
