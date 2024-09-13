@@ -864,13 +864,13 @@ a:hover {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(/img/avatar_bg1.jpg);
+  background-image: url('https://fastly.jsdelivr.net/gh/redbeancc/redbeancc.github.io/img/avatar_bg1.jpg');
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(/img/avatar_bg2.jpg);
+  background-image: url('https://fastly.jsdelivr.net/gh/redbeancc/redbeancc.github.io/img/avatar_bg2.jpg');
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
