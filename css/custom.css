@@ -120,12 +120,13 @@
     /* 字体文件地址(相对或者绝对路径都可以，/source 为根目录 /) */
     /* src: url(/font/ZhuZiAWan.woff2); */
     src: url('https://fastly.jsdelivr.net/gh/redbeancc/redbeancc.github.io/font/ZhuZiAWan.woff2');
+    /* 定义显示样式 注意：使用非字体阻塞*/
+    font-display: swap;
     /* 定义加粗样式(加粗多少) */
     font-weight: normal;
     /* 定义字体样式(斜体/非斜体) */
     font-style: normal;
-    /* 定义显示样式 注意：使用非字体阻塞*/
-    font-display: swap;
+
   }
   /*------------- 自定义字体end ------------------*/
 
