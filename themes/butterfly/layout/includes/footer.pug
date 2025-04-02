@@ -1,0 +1,75 @@
+#footer-wrap
+  #ft
+    .ft-item-1
+      .t-top
+        .t-t-l
+          p.ft-t.t-l-t 格言🍬
+          .bg-ad
+            div
+              | 一开始，世界上只有氢，恒星内部的聚变到铁为止，金、铂这样的重金属元素只能来自于超新星爆发这种宇宙中最绚丽的葬礼，也就是说 —— 如果你送了女孩一枚铂金的戒指，她就戴上了一块星星的碎片 ✨
+            .btn-xz-box
+              a.btn-xz(href='https://stellarium.org/') 点击开启星辰之旅
+        .t-t-r
+          p.ft-t.t-l-t 猜你想看💡
+          ul.ft-links
+            //- li
+            //-   a(href='/posts/eec9786.html') 魔改指南
+            //-   a(href='/box/nav/') 网址导航
+            li
+              a(href='/about/') 关于作者
+              a(href='/archives/') 文章归档
+            li
+              a(href='/categories/') 文章分类
+              a(href='/tags/') 文章标签
+            li
+              a(href='/bb/') 闲言碎语
+              a(href='/charts/') 网站统计
+    .ft-item-2
+      p.ft-t 推荐友链⌛
+      .ft-img-group
+        .img-group-item
+          a(href='https://redbeancc.github.io' title='Red Bean🌺🌺🌺')
+            img(src='https://img-blog.csdnimg.cn/direct/0d2446d80d4f45528563579d0ba0c619.jpeg' alt='')
+        .img-group-item
+          a(href='https://www.fomal.cc/' title='Fomalhaut🥝')
+            img(src='https://sourcebucket.s3.bitiful.net/img/avatar.webp' alt='')
+
+
+  if theme.footer.owner.enable
+    - var now = new Date()
+    - var nowYear = now.getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright
+        span!= `<b>&copy;${theme.footer.owner.since} - ${nowYear}</b>`
+        span!= `<b>&nbsp;&nbsp;By ${config.author}</b>`
+    else
+       .copyright
+         span!= `<b>&copy;${nowYear}</b>`
+         span!= `<b>&nbsp;&nbsp;By ${config.author}</b>`
+  if theme.footer.copyright
+    .framework-info
+      span= _p('footer.framework') + ' '
+      a(href='https://hexo.io')= 'Hexo'
+      span.footer-separator |
+      span= _p('footer.theme') + ' '
+      a(href='https://github.com/jerryc127/hexo-theme-butterfly')= 'Butterfly'
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
+    
+  #workboard
+  
+  p#ghbdages
+    a.github-badge(target='_blank' href="https://hexo.io/" style='margin-inline:5px' title="博客框架为Hexo_v6.3.0")
+      img(src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" alt='')
+
+    a.github-badge(target='_blank' href="https://butterfly.js.org/" style='margin-inline:5px' title="主题版本Butterfly_v4.3.1")
+      img(src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" alt='')
+
+    a.github-badge(target='_blank' href="https://vercel.com/" style='margin-inline:5px' title="本站采用多线部署，主线路托管于Vercel")
+      img(src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&logo=Vercel" alt='')
+
+    a.github-badge(target='_blank' href="https://github.com/" style='margin-inline:5px' title="本网站源码由Github提供存储仓库")
+      img(src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" alt='')
+    
+    a.github-badge(target='_blank' href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style='margin-inline:5px' title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可")
+      img(src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt='')
